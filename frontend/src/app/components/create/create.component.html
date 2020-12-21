@@ -1,0 +1,30 @@
+
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Add A New Recipe</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+
+    <form [formGroup]="createForm" class="create-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Recipe" formControlName="Recipe" #Recipe>
+        <!--<mat-error *ngIf="createForm.controls['title'].errors.required">
+          Title is <strong>required</strong>
+        </mat-error>-->
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Content" formControlName="content" #content>
+      </mat-form-field>
+
+
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="addIssue(Recipe.value, content.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>
